@@ -1,11 +1,8 @@
-# Usamos la imagen base de Nginx
-FROM nginx:latest
+FROM httpd:latest
 
-# Copiamos el archivo HTML al directorio de Nginx
-COPY index.html /usr/share/nginx/html/
+COPY index.html /usr/local/apache2/htdocs/
 
-# Exponemos el puerto 80
 EXPOSE 80
 
-# Comando por defecto para ejecutar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["httpd", "-D", "FOREGROUND"]
+
